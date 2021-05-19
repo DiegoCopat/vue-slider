@@ -13,16 +13,23 @@
         
         <section id="root">
             <section id="slider">
+
                 <div class="backImage">
-                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-chevron-left" @click="back"></i>
                 </div>
+
                 <div class="sliderImage">
-                    <img v-bind:src="srcImage" alt="">
+                    <img :src="imageSrc[imageIndex]" alt="">
                 </div>
+
                 <div class="nextImage">
-                    <i class="fas fa-chevron-right"></i>
+                    <i class="fas fa-chevron-right" @click="next"></i>
                 </div>
-                <i class="far fa-circle"></i>
+
+                <section class="circle">
+                    <i v-for="(link, index) in imageSrc" class="far fa-circle" :class="(index == imageIndex) ? 'fas' : 'far'"></i>
+                </section>
+                
             </section>
         </section>
 
